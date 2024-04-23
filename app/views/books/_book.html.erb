@@ -1,0 +1,26 @@
+<div class="card-list-container py-5">
+  <% books.each do |book| %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <%= link_to book_path(book.id) do %>
+      <%= image_tag book.get_image, class:"card-img-top"; %>
+    <% end %>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-2">
+          
+        </div>
+        <div class="col-10">
+          <p class="card-title">
+            <%= link_to(book_path(book.id), class:"text-dark") do %>
+              <strong><i class="fa-regular fa-flag"></i><span> <%= book.title %></span></strong>
+            <% end %>
+          </p>
+          <p class="card-text"></p>
+          <span><i class="fa-solid fa-user"></i> </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+ 
+</div>
