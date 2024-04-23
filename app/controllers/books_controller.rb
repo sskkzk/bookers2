@@ -14,10 +14,13 @@ class BooksController < ApplicationController
   
    # 投稿データの保存
   def create
-     @book = Book.new(book_params)
-     @book.user_id = current_user.id
-     @book.save
-     redirect_to '/books'
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    if @book.save# もし保存ができたら
+    redirect_to '/books/new'  # 投稿画面に遷移
+    else  # できなければ
+    render :new  # newに遷移
+    end
   end
   
    private
