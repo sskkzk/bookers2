@@ -3,7 +3,7 @@ class Book < ApplicationRecord
   # ... other validations
   has_one_attached :image  # Paperclip or Shrineなどのライブラリを使用
   # ... other methods
-  
+  belongs_to :user
   
   def get_image
     unless image.attached?
