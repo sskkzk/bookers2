@@ -5,11 +5,17 @@ class Book < ApplicationRecord
   # ... other methods
   belongs_to :user
   
-  def get_image
-    unless image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
-    end
-    image
+  has_one_attached :image
+
+  def self.default_image
+    Rails.root.join('app/assets/images/no_image.jpg')
   end
+
+  def get_image
+    image ||= Book.default_image # image が nil ならば Book.default_image を代入
+    # ... (既存の処理)
+  end
+  
+  
+ 
 end

@@ -13,6 +13,9 @@
 
   <body>
     <header>
+      <li>
+      <%= link_to 'Bookers', "/" %>
+      </li>
     <% if user_signed_in? %>
       <li>
       <%= link_to 'Home', "/books" %>
@@ -43,4 +46,7 @@
   </header>
     <%= yield %>
   </body>
+  <footer>
+    CopyRight Infratop.inc
+  </footer>
 </html>

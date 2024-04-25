@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
 
   # ブック関連のルーティング (new, index, showのみ許可)
-  resources :books, only: [:new, :index, :show]
+  resources :books, only: [:new, :index, :show, :create ]
 
   # aboutページのルーティング
   get 'homes/about', to: 'homes#about'  # こちらもインデントに注意

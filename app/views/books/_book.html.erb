@@ -2,7 +2,6 @@
   <% books.each do |book| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= link_to book_path(book.id) do %>
-      <%= image_tag book.get_image, class:"card-img-top"; %>
     <% end %>
     <div class="card-body">
       <div class="row">
@@ -32,7 +31,3 @@
   <%= f.text_area :body %>
   <%= f.submit '投稿' %>
 <% end %>
-<div class="form-group">
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar, class: 'avatar' %>
-  </div>

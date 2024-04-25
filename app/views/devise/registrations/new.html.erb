@@ -2,12 +2,12 @@
 
 <%= form_with model: @user, url: user_registration_path do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-<div class="field">
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
-</div>
-
+  
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" aria-hidden="true"><i class="fas fa-user"></i></span>
+  </div>
+  <%= f.text_field :name, autofocus: true, placeholder:"ユーザー名" %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
