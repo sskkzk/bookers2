@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_one_attached :image 
-  
+   # 既存のコード
+  belongs_to :book, optional: true # bookモデルとの関連付け
   has_many :books, dependent: :destroy
 end
