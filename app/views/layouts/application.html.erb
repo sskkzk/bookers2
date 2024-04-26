@@ -12,40 +12,74 @@
   </head>
 
   <body>
-    <header>
-      <li>
-      <%= link_to 'Bookers', "/" %>
-      </li>
-    <% if user_signed_in? %>
-      <li>
-      <%= link_to 'Home', "/books" %>
-      </li>
-      <li>
-      <%= link_to 'Users', "/users" %>
-      </li>
-      <li>
-      <%= link_to '投稿フォーム', new_book_path %>
-      </li>
-      <li>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-    <li>
-      <%= link_to 'Home', "/" %>
-      </li>
-      <li>
-      <%= link_to 'About', "/homes/about" %>
-      </li>
-      <li>
-      <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-      <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
-  </header>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Bookers</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      
+      <% if user_signed_in? %>
+     
+      <ul class="navbar-nav ml-auto"> 
+        
+        <li class="nav-item">
+          <a class="nav-link text-light active" aria-current="page" href="/books">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link text-light active" aria-current="page" href="/users">Users</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link text-light active" aria-current="page" href=new_book_path>Book</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link text-light active" aria-current="page" href=destroy_user_session_path, method: :delete>Log out</a>
+        </li>
+        
+      </ul>
+      
+      <% else %>
+     
+       <ul class="navbar-nav ml-auto"> 
+        
+        <li class="nav-item">
+          <a class="nav-link text-light active" aria-current="page" href="/">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link text-light active" aria-current="page" href="/homes/about">About</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link text-light active" aria-current="page" href=new_user_registration_path>Sign up</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link text-light active" aria-current="page" href=new_user_session_path>Log in</a>
+        </li>
+        
+      </ul>
+     
+      <% end %>
+      
+    </div>
+    </div>
+    </>
+    </nav>
+</header>
     <%= yield %>
   </body>
+  
+  
+  
+  
   <footer>
     CopyRight Infratop.inc
   </footer>
