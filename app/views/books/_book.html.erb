@@ -1,33 +1,14 @@
-<div class="card-list-container py-5">
-  <% books.each do |book| %>
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to book_path(book.id) do %>
-    <% end %>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-2">
-          <li>
-      <%= link_to 'マイページ', user_path(current_user.id) %>    </li>
-        </div>
-        <div class="col-10">
-          <p class="card-title">
-            <%= link_to(book_path(book.id), class:"text-dark") do %>
-              <strong><i class="fa-regular fa-flag"></i><span> <%= book.title %></span></strong>
-            <% end %>
-          </p>
-          <p class="card-text"></p>
-          <span><i class="fa-solid fa-user"></i> </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</div>
+<main>
+  部分テンプレート
+  
+  <div class="container px-5 px-sm-0">
 <h1>投稿フォーム</h1>
-<%= form_with model: @book do |f| %>
+<%= form_with model: book do |f| %>
   <h4>タイトル</h4>
   <%= f.text_field :title %>
   <h4>感想</h4>
   <%= f.text_area :body %>
   <%= f.submit '投稿' %>
 <% end %>
+</div>
+</main>

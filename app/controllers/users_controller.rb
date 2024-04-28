@@ -3,12 +3,13 @@ class UsersController < ApplicationController
  end
  
  def index
+  @book = Book.new
   @users = User.all  # ユーザ一覧を取得 (例)
-  @user = User.find(params[:id])
-  @user.user_id = current_user.id
+  @user = User.find_by(id: params[:id])
+  # @user.user_id = current_user.id
  end
  
-  def update
+def update
   @user = User.find(params[:id])
   if @user.update(user_params)
     if params[:image].present?
