@@ -24,6 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       
       <% if user_signed_in? %>
+      <!--https://getbootstrap.jp/docs/5.3/components/navbar/の枠組みを使えば楽-->
      
       <ul class="navbar-nav ml-auto"> 
         
@@ -75,7 +76,13 @@
     </nav>
     <p id="notice"></p>
 </header>
+<!--各ページ内容を読むため？-->
+ 　<div class="container px-5 px-sm-0">
+    <div class="row">
     <%= yield %>
+    <!--↑ここに各ページの内容代入-->
+    </div>
+    </div>
   </body>
 
   <footer>

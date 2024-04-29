@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
  def show
+   @book = Book.new
+   @users = User.all
  end
  
  def index
