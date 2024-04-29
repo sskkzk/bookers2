@@ -33,7 +33,7 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link text-light active" aria-current="page" href="/users/<%= current_user.id %>"><i class="fa-solid fa-users"></i> Users</a>
+          <a class="nav-link text-light active" aria-current="page" href="/users"><i class="fa-solid fa-users"></i> Users</a>
         </li>
         
         <li class="nav-item">
@@ -76,14 +76,16 @@
     </nav>
     <p id="notice"></p>
 </header>
-<!--各ページ内容を読むため？-->
- 　<div class="container px-5 px-sm-0">
+  <main>
+<!--各ページ内容を読むため-->
+ 　<div class="container px-sm-0">
     <div class="row">
     <%= yield %>
-    <!--↑ここに各ページの内容代入-->
+    <!--↑ここに各ページの内容が代入-->
     </div>
     </div>
-  </body>
+  </main>
+ 
 
   <footer>
     <div class="container mt-5">
@@ -94,4 +96,5 @@
     </div>
     </div>
   </footer>
+   </body>
 </html>

@@ -1,7 +1,17 @@
 <%= render 'book', books: @books %>
-<div>
-  <p>タイトル：<%= @book.title %></p>
-  <p>内容：<%= @book.body %></p>
-  <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p>
-  
+<div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
+<table class="table">
+  <tr>
+    <td><p style="margin-bottom: -3px;"><%= image_tag 'sample-author1.jpg' %></p><a href=/users/<%= @book_main.user.id %>><%= @book_main.user.name %> </td>
+    <td><a href=/books/<%= @book_main.id %>><%= @book_main.title %></td>
+    <td><%= @book_main.body %></td>
+    <% if @book_main.user == current_user %>
+    <td>Edit</td>
+    
+    <td><%= link_to "Destroy", book_path(@book_main), method: :delete %></td>
+  <% end %>
+    <td>Destroy</td>
+  </tr>
+</table>
 </div>

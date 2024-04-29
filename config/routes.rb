@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users  # ユーザー認証のためのルーティングを生成
   
-  resources :books, only: [:index, :new, :show, :create ]
+  resources :books, only: [:index, :new, :show, :create, :destroy]
   # ユーザー関連のルーティング (indexとshowのみ許可)
   resources :users
   # , only: [:show, :index] 
