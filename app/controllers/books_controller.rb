@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :ensure_user, only: [:edit, :update, :destroy]
    # @book = Book.find(params[:id])
   def new
     @book = Book.new
@@ -26,6 +27,21 @@ class BooksController < ApplicationController
     render :new  # newに遷移
     end
   end
+  
+  def edit
+    @book = Book.find(params[:id])
+  end
+  
+  def update
+    book = Book.find(params[:id])
+      if book.update(book_params)
+      redirect_to book_path(book.id)
+      else
+      render :show
+      end
+      
+  end
+  
   
   def destroy
     book = Book.find(params[:id])

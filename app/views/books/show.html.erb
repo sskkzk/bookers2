@@ -7,11 +7,12 @@
     <td><a href=/books/<%= @book_main.id %>><%= @book_main.title %></td>
     <td><%= @book_main.body %></td>
     <% if @book_main.user == current_user %>
-    <td>Edit</td>
+   
+    <td><%= link_to "Edit", edit_book_path(@book_main.id) %></td>
     
     <td><%= link_to "Destroy", book_path(@book_main), method: :delete %></td>
+   
   <% end %>
-    <td>Destroy</td>
   </tr>
 </table>
 </div>
