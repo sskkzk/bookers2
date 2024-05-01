@@ -7,10 +7,7 @@
           <tr></tr>
           <tr>
             <th>name</th>
-            <th><a href="<%= edit_user_registration_path(current_user) %>" class="user-name">
-              <%= current_user.name %>
-            </a>
-          </tr>
+            <th><%= current_user.name %></tr>
           <tr>
             <th>introduction</th>
             <th></th>
@@ -18,7 +15,7 @@
         </tbody>
       </table>
     <div class="row">
-      <a class="btn btn-outline-secondary btn-sm btn-block mb-3 " aria-current="page" href="<%= edit_user_registration_path(current_user) %>"><i class="fa-solid fa-user-gear"></i></a>
+      <%= link_to "<i class='fa-solid fa-user-gear'></i>".html_safe, edit_user_registration_path(current_user), class: "btn btn-outline-secondary btn-sm btn-block mb-3", aria_current: "page" %>
     </div>
 <h2>New Book</h2>
 <%= form_with model: @book do |f| %>

@@ -8,8 +8,6 @@ class UsersController < ApplicationController
  def index
   @book = Book.new
   @users = User.all  # ユーザ一覧を取得 (例)
-  @user = User.find_by(id: params[:id])
-  # @user.user_id = current_user.id
  end
  
 def update
