@@ -16,7 +16,7 @@
   <% @users.each do |user| %>
  
     <tr>
-        <td></td>
+        <td><%= image_tag user.get_image(100,100) %></td>
             
         <td><%= link_to user_path(user.id) do %><%= user.name %><% end %></td>
         
