@@ -2,16 +2,19 @@ class BooksController < ApplicationController
   # before_action :ensure_user, only: [:edit, :update, :destroy]
    # @book = Book.find(params[:id])
   def new
+    @user = current_user
     @book = Book.new
   end
   
   def show
+    @user = User.find_by(params[:id])
     @book = Book.new
     @book_main = Book.includes(:user).find(params[:id])
     @books = Book.find(params[:id])
   end
   
   def index
+    @user = current_user
     @book = Book.new
     @books = Book.all 
   end

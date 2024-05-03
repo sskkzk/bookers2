@@ -4,7 +4,7 @@
 <table class="table">
   <tr>
     <td><p style="margin-bottom: -3px;"><%= image_tag 'sample-author1.jpg' %></p><a href=/users/<%= @book_main.user.id %>><%= @book_main.user.name %> </td>
-    <td><a href=/books/<%= @book_main.id %>><%= @book_main.title %></td>
+    <td><td><%= link_to @book_main.title, book_path(@book_main) %></td></td>
     <td><%= @book_main.body %></td>
     <% if @book_main.user == current_user %>
    

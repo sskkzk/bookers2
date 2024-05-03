@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
  def show
+   @user = User.find(params[:id])
    @book = Book.new
-   @books = current_user.books
+   @books = @user.books
    @users = User.all
  end
  
  def index
+  @user = current_user
   @book = Book.new
   @users = User.all  # ユーザ一覧を取得 (例)
  end
