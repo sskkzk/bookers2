@@ -6,6 +6,10 @@ class UsersController < ApplicationController
    @users = User.all
  end
  
+ def edit
+   @user = current_user
+ end
+ 
  def index
   @user = current_user
   @book = Book.new
@@ -18,7 +22,7 @@ def update
     if params[:image].present?
       @user.image.attach(params[:image])
     end
-    redirect_to @user, notice: "ユーザー情報を更新しました。"
+    redirect_to "/users", notice: "ユーザー情報を更新しました。"
   else
     render :edit
   end
@@ -27,6 +31,6 @@ end
 private
 
   def user_params
-    params.require(:user).permit(:title, :image, :body )
+    params.require(:user).permit(:name, :image, :body, :introduction )
   end
 end

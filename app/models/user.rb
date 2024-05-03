@@ -17,4 +17,5 @@ def get_image(width, height)
     end
      image.variant(resize_to_limit: [width, height]).processed
 end
+
 end
