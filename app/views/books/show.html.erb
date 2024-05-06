@@ -8,9 +8,9 @@
     <td><%= @book_main.body %></td>
     <% if @book_main.user == current_user %>
    
-    <td><%= link_to "Edit", edit_book_path(@book_main.id) %></td>
+    <td><%= link_to "Edit", edit_book_path(@book_main.id),class: "btn btn-success" %></td>
     
-    <td><%= link_to "Destroy", book_path(@book_main), method: :delete %></td>
+    <td><%= link_to "Destroy", book_path(@book_main), method: :delete, class: "btn btn-danger " %></td>
    
   <% end %>
   </tr>

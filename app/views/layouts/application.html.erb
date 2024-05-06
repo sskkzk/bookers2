@@ -77,8 +77,16 @@
     <p id="notice"></p>
 </header>
   <main>
+    <div class="container px-sm-0">
+    <div class="row">
 <!--各ページ内容を読むため-->
- 　<div class="container px-sm-0">
+      <%= notice %>
+      <%= alert %>
+    </div>
+    </div>
+    </div>
+    
+ 　  <div class="container px-sm-0">
     <div class="row">
     <%= yield %>
     <!--↑ここに各ページの内容が代入-->

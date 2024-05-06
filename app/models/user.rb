@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  validates :name, presence: true
+  validates :introduction, presence: true     
+  validates_length_of :name, minimum: 2, maximum: 20
+  validates_length_of :introduction, maximum: 50
+         
   has_one_attached :image
    # 既存のコード
   belongs_to :book, optional: true # bookモデルとの関連付け
