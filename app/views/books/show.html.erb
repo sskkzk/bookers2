@@ -3,7 +3,17 @@
   <h2>Book detail</h2>
 <table class="table">
   <tr>
-    <td><p style="margin-bottom: -3px;"><%= image_tag 'sample-author1.jpg' %></p><a href=/users/<%= @book_main.user.id %>><%= @book_main.user.name %> </td>
+    <td><p style="margin-bottom: -3px;">
+        <%= link_to user_path(@book_main.user.id) do %>
+              <%= image_tag @book_main.user.get_image(100,100) %><br>
+              <%= @book_main.user.name %>
+         <% end %>  
+        </p>
+    </td>
+     <%#= image_tag 'sample-author1.jpg' %>
+    <%#= link_to user_path(@book_main.user) %><%#= @book_main.user.name %> 
+            
+    
     <td><td><%= link_to @book_main.title, book_path(@book_main) %></td></td>
     <td><%= @book_main.body %></td>
     <% if @book_main.user == current_user %>

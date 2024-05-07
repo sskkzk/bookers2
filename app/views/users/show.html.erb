@@ -18,7 +18,13 @@
   <% @books.each do |book| %>
   <!--投稿者のID-->
     <tr>
-        <td><a href=/users/<%= current_user.id %> class="user-name"><%= image_tag 'sample-author1.jpg' %></td>
+        
+        <td><%= link_to user_path(book.user.id) do %>
+                  <%= image_tag book.user.get_image(100,100) %>
+            <% end %>
+        </td>
+            
+            <!--<a href=/users/<%#= current_user.id %> class="user-name"><%#= image_tag 'sample-author1.jpg' %>-->
             
         <td><%= link_to book_path(book.id) do %><%= book.title %><% end %></td>
         

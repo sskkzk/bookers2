@@ -60,7 +60,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to user_path(current_user), notice: "投稿を削除しました。"
+    redirect_to "/books", notice: "投稿を削除しました。"
   end
   
   private
