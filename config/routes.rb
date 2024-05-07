@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   root to: 'homes#top'
 
   # aboutページのルーティング
-  get 'homes/about', to: 'homes#about'  # こちらもインデントに注意
+  get 'home/about', to: 'homes#about'  # こちらもインデントに注意
 end

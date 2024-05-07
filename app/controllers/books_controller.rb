@@ -1,19 +1,15 @@
 class BooksController < ApplicationController
-  # before_action :ensure_user, only: [:edit, :update, :destroy]
-   # @book = Book.find(params[:id])
-  def new
-    @user = current_user
-    @book = Book.new
-  end
+  before_action :correct_user, only: [:edit, :update, :destroy]
   
   def show
-    @user = User.find_by(params[:id])
     @book = Book.new
     @book_main = Book.includes(:user).find(params[:id])
     @books = Book.find(params[:id])
+    @user = @books.user
   end
   
   def index
+    @users = User.all 
     @user = current_user
     @book = Book.new
     @books = Book.all 
@@ -41,10 +37,11 @@ class BooksController < ApplicationController
   end
 
   # ユーザーが所有していない投稿の場合はエラー
-  unless current_user.id == book.user_id
+  unless current_user.id == @book.user_id
     flash[:error] = "あなたはこの投稿を編集できません。"
     redirect_to "/books"
   end
+  
   end
   
   def update
@@ -71,4 +68,11 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body )
   end
+  
+  def correct_user
+    @book = Book.find(params[:id])
+    @user = @book.user
+    redirect_to(books_path) unless @user == current_user
+  end
+  
 end
